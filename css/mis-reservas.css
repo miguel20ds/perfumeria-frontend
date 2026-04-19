@@ -1,0 +1,11 @@
+ body { background-color: #f5f3ff; }
+        .navbar { background-color: white; border-bottom: 1px solid #e5e7eb; }
+        .navbar-brand { color: #7c3aed; font-weight: 800; letter-spacing: 2px; }
+        .btn-purple { background-color: #7c3aed; color: white; border: none; }
+        .btn-purple:hover { background-color: #5b21b6; color: white; }
+        .btn-outline-purple { border: 2px solid #7c3aed; color: #7c3aed; background: none; }
+        .btn-outline-purple:hover { background-color: #7c3aed; color: white; }
+        .badge-pendiente { background-color: #fef3c7; color: #d97706; }
+        .badge-entregado { background-color: #d1fae5; color: #059669; }
+        .reserva-card { background: white; border-radius: 16px; border: 1px solid #e5e7eb; }
+        .section-title { color: #1e1b4b; font-weight: 700; }

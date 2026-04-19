@@ -1,0 +1,7 @@
+ body { background-color: #f5f3ff; }
+        .card { border: none; border-radius: 16px; }
+        .btn-primary { background-color: #7c3aed; border-color: #7c3aed; }
+        .btn-primary:hover { background-color: #5b21b6; border-color: #5b21b6; }
+        .form-control:focus { border-color: #7c3aed; box-shadow: 0 0 0 0.2rem rgba(124,58,237,0.2); }
+        .text-purple { color: #7c3aed; }
+        .brand-title { color: #7c3aed; font-weight: 700; letter-spacing: 2px; }

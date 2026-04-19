@@ -1,0 +1,17 @@
+body { background-color: #f5f3ff; }
+        .navbar { background-color: #1e1b4b; }
+        .navbar-brand { color: #c4b5fd; font-weight: 800; letter-spacing: 2px; }
+        .navbar-brand:hover { color: white; }
+        .nav-link-admin { color: #c4b5fd; text-decoration: none; font-size: 0.9rem; }
+        .nav-link-admin:hover { color: white; }
+        .nav-link-admin.active { color: white; font-weight: 600; }
+        .btn-purple { background-color: #7c3aed; color: white; border: none; }
+        .btn-purple:hover { background-color: #5b21b6; color: white; }
+        .admin-badge { background-color: #7c3aed; color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 20px; }
+        .table th { background-color: #f5f3ff; color: #7c3aed; font-size: 0.85rem; font-weight: 600; border-bottom: 2px solid #ede9fe; }
+        .table td { font-size: 0.9rem; vertical-align: middle; }
+        .section-title { color: #1e1b4b; font-weight: 700; }
+        .avatar { width: 38px; height: 38px; border-radius: 50%; background-color: #ede9fe; display: flex; align-items: center; justify-content: center; color: #7c3aed; font-weight: 700; font-size: 0.9rem; }
+        .badge-user { background-color: #ede9fe; color: #7c3aed; }
+        .badge-admin { background-color: #1e1b4b; color: #c4b5fd; }
+        .search-input:focus { border-color: #7c3aed; box-shadow: 0 0 0 0.2rem rgba(124,58,237,0.2); }

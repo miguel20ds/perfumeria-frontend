@@ -1,0 +1,47 @@
+:root {
+            --purple: #7c3aed;
+            --purple-dark: #5b21b6;
+            --purple-light: #ede9fe;
+            --purple-bg: #f5f3ff;
+        }
+
+        body { font-family: 'Segoe UI', sans-serif; color: #1e1b4b; }
+
+        .navbar { background-color: white; border-bottom: 1px solid #e5e7eb; }
+        .navbar-brand { color: var(--purple); font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; }
+        .btn-login { border: 2px solid var(--purple); color: var(--purple); border-radius: 8px; font-weight: 500; }
+        .btn-login:hover { background-color: var(--purple); color: white; }
+        .btn-registro { background-color: var(--purple); color: white; border-radius: 8px; font-weight: 500; }
+        .btn-registro:hover { background-color: var(--purple-dark); color: white; }
+
+        .hero {
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 3rem; font-weight: 800; color: #1e1b4b; line-height: 1.2; }
+        .hero h1 span { color: var(--purple); }
+        .hero p { font-size: 1.15rem; color: #6b7280; max-width: 500px; margin: 1rem auto 2rem; }
+        .btn-hero { background-color: var(--purple); color: white; padding: 0.8rem 2rem; border-radius: 10px; font-size: 1rem; font-weight: 600; border: none; text-decoration: none; }
+        .btn-hero:hover { background-color: var(--purple-dark); color: white; }
+
+        .section-title { font-size: 1.6rem; font-weight: 700; color: #1e1b4b; margin-bottom: 0.5rem; }
+        .section-subtitle { color: #6b7280; margin-bottom: 2.5rem; }
+
+        .feature-icon {
+            width: 56px; height: 56px;
+            background-color: var(--purple-light);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .info-section { background-color: var(--purple-bg); padding: 80px 0; }
+        .info-card { background: white; border-radius: 16px; padding: 2rem; border: 1px solid #e5e7eb; height: 100%; }
+        .info-icon { font-size: 2rem; color: var(--purple); margin-bottom: 1rem; }
+
+        .map-container { border-radius: 16px; overflow: hidden; border: 1px solid #e5e7eb; }
+
+        footer { background-color: #1e1b4b; color: #c4b5fd; padding: 2rem 0; }
+        footer .brand { color: white; font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; }
