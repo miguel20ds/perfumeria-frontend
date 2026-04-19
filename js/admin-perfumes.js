@@ -34,7 +34,7 @@ function renderizarTabla(lista) {
             <td class="ps-4">
                 <div class="d-flex align-items-center gap-3">
                     ${p.imagenUrl
-                        ? `<img src="${p.imagenUrl}" class="perfume-thumb" alt="${p.nombre}"
+                        ? `<img src="${p.imagenUrl.startsWith('http') ? p.imagenUrl : API_URL + p.imagenUrl}" class="perfume-thumb" alt="${p.nombre}"
                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                            <div class="perfume-thumb-placeholder" style="display:none;"><i class="bi bi-droplet-fill"></i></div>`
                         : `<div class="perfume-thumb-placeholder"><i class="bi bi-droplet-fill"></i></div>`
@@ -71,8 +71,9 @@ function abrirModalCrear() {
     document.getElementById('f-marca').value = '';
     document.getElementById('f-precio').value = '';
     document.getElementById('f-stock').value = '';
-    document.getElementById('f-imagen').value = '';
+    document.getElementById('f-imagen-file').value = '';
     document.getElementById('f-descripcion').value = '';
+    document.getElementById('f-imagen-url').value = '';
     document.getElementById('alerta-modal').classList.add('d-none');
     new bootstrap.Modal(document.getElementById('modalPerfume')).show();
 }
@@ -84,7 +85,8 @@ function abrirModalEditar(perfume) {
     document.getElementById('f-marca').value = perfume.marca;
     document.getElementById('f-precio').value = perfume.precio;
     document.getElementById('f-stock').value = perfume.stock;
-    document.getElementById('f-imagen').value = perfume.imagenUrl || '';
+    document.getElementById('f-imagen-file').value = '';
+    document.getElementById('f-imagen-url').value = perfume.imagenUrl || '';
     document.getElementById('f-descripcion').value = perfume.descripcion || '';
     document.getElementById('alerta-modal').classList.add('d-none');
     new bootstrap.Modal(document.getElementById('modalPerfume')).show();
@@ -95,15 +97,46 @@ async function guardarPerfume() {
     const marca = document.getElementById('f-marca').value.trim();
     const precio = document.getElementById('f-precio').value;
     const stock = document.getElementById('f-stock').value;
-    const imagenUrl = document.getElementById('f-imagen').value.trim();
     const descripcion = document.getElementById('f-descripcion').value.trim();
+    const fileInput = document.getElementById('f-imagen-file');
+    const urlInput = document.getElementById('f-imagen-url').value.trim();
 
     if (!nombre || !marca || !precio || !stock) {
         mostrarAlertaModal('Por favor completa los campos obligatorios.', 'danger');
         return;
     }
 
-    const datos = { nombre, marca, precio: parseFloat(precio), stock: parseInt(stock), imagenUrl, descripcion };
+    let imagenUrl = urlInput;
+
+    if (fileInput.files.length > 0) {
+        try {
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            const token = obtenerToken();
+            const response = await fetch(`${API_URL}/perfumes/upload`, {
+                method: 'POST',
+                headers: { 'Authorization': `Bearer ${token}` },
+                body: formData
+            });
+
+            const data = await response.json();
+            if (!response.ok) throw data;
+            imagenUrl = data.url;
+        } catch (err) {
+            mostrarAlertaModal('Error al subir la imagen.', 'danger');
+            return;
+        }
+    }
+
+    const datos = {
+        nombre,
+        marca,
+        precio: parseFloat(precio),
+        stock: parseInt(stock),
+        imagenUrl,
+        descripcion
+    };
 
     try {
         if (perfumeIdEditando) {

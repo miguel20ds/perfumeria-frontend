@@ -33,7 +33,7 @@ function renderizarPerfumes(lista) {
         <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
             <div class="perfume-card d-flex flex-column" style="height: 100%;">
                 ${p.imagenUrl
-                    ? `<img src="${p.imagenUrl}" class="perfume-img" alt="${p.nombre}"
+                    ? `<img src="${p.imagenUrl.startsWith('http') ? p.imagenUrl : API_URL + p.imagenUrl}" class="perfume-img" alt="${p.nombre}"
                           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                        <div class="perfume-img-placeholder" style="display:none;"><i class="bi bi-droplet-fill"></i></div>`
                     : `<div class="perfume-img-placeholder"><i class="bi bi-droplet-fill"></i></div>`

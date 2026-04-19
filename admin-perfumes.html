@@ -116,8 +116,17 @@
                             <input type="number" id="f-stock" class="form-control" placeholder="10">
                         </div>
                         <div class="col-12">
-                            <label class="form-label small fw-medium">URL de imagen</label>
-                            <input type="text" id="f-imagen" class="form-control" placeholder="https://...">
+                            <label class="form-label small fw-medium">Imagen</label>
+                            <div class="mb-2">
+                                <input type="file" id="f-imagen-file" class="form-control" accept="image/*">
+                                <div class="form-text">Sube la imagen</div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 my-2">
+                                <hr class="flex-grow-1">
+                                <span class="text-muted small">o usa una URL</span>
+                                <hr class="flex-grow-1">
+                            </div>
+                            <input type="text" id="f-imagen-url" class="form-control" placeholder="https://...">
                         </div>
                         <div class="col-12">
                             <label class="form-label small fw-medium">Descripción</label>
