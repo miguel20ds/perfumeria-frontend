@@ -11,10 +11,10 @@ async function request(endpoint, method = 'GET', body = null, auth = true) {
 
     const response = await fetch(`${API_URL}${endpoint}`, config);
 
-    if (response.status === 401) {
-        cerrarSesion();
-        return;
-    }
+    if (response.status === 401 && !endpoint.includes('/auth/')) {
+    cerrarSesion();
+    return;
+}
 
     const text = await response.text();
     const data = text ? JSON.parse(text) : null;
