@@ -37,3 +37,12 @@ function verificarAdmin() {
         window.location.href = 'catalogo.html';
     }
 }
+
+function obtenerIdioma() {
+    return localStorage.getItem('idioma') || 'es';
+}
+
+function cambiarIdioma(idioma) {
+    localStorage.setItem('idioma', idioma);
+    location.reload();
+}

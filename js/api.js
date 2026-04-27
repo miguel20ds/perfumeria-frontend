@@ -1,5 +1,8 @@
 async function request(endpoint, method = 'GET', body = null, auth = true) {
-    const headers = { 'Content-Type': 'application/json' };
+    const headers = { 
+        'Content-Type': 'application/json',
+        'Accept-Language': obtenerIdioma()
+     };
 
     if (auth) {
         const token = obtenerToken();

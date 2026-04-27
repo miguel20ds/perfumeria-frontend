@@ -3,6 +3,10 @@ verificarAutenticacion();
 let perfumes = [];
 let perfumeIdSeleccionado = null;
 
+document.addEventListener('DOMContentLoaded', () => {
+    aplicarTraducciones();
+});
+
 document.getElementById('nombre-usuario').textContent = obtenerNombre();
 
 async function cargarPerfumes() {
@@ -10,7 +14,7 @@ async function cargarPerfumes() {
         perfumes = await api.listarPerfumes();
         renderizarPerfumes(perfumes);
     } catch (err) {
-        mostrarToast('Error al cargar los perfumes.', 'danger');
+        mostrarToast(t('catalogo.error.cargar'), 'danger');
     } finally {
         document.getElementById('loading').classList.add('d-none');
     }
@@ -46,15 +50,15 @@ function renderizarPerfumes(lista) {
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <span class="precio">$${p.precio.toLocaleString('es-CO')}</span>
                             <span class="text-muted small">
-                                <i class="bi bi-box-seam me-1"></i>${p.stock} disponibles
+                                <i class="bi bi-box-seam me-1"></i>${p.stock} ${t('catalogo.disponibles')}
                             </span>
                         </div>
                         <button class="btn btn-purple w-100 btn-sm"
                             ${p.stock === 0 ? 'disabled' : ''}
                             onclick="abrirModalReserva(${p.id}, '${p.nombre}')">
                             ${p.stock === 0
-                                ? 'Sin stock'
-                                : '<i class="bi bi-bag-plus me-1"></i>Reservar'
+                                ? t('catalogo.sin.stock')
+                                : `<i class="bi bi-bag-plus me-1"></i>${t('catalogo.reservar')}`
                             }
                         </button>
                     </div>
@@ -74,10 +78,10 @@ async function confirmarReserva() {
     try {
         await api.crearReserva(perfumeIdSeleccionado);
         bootstrap.Modal.getInstance(document.getElementById('modalReserva')).hide();
-        mostrarToast('Reserva realizada exitosamente.', 'success');
+        mostrarToast(t('modal.reserva.exito'), 'success');
     } catch (err) {
         bootstrap.Modal.getInstance(document.getElementById('modalReserva')).hide();
-        mostrarToast(err.error || 'Error al realizar la reserva.', 'danger');
+        mostrarToast(err.error || t('catalogo.error.cargar'), 'danger');
     }
 }
 

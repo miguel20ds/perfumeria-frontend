@@ -9,6 +9,24 @@
     <link href="css/registro.css" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar sticky-top" style="background: white; border-bottom: 1px solid #e5e7eb;">
+        <div class="container">
+            <a class="navbar-brand" href="inicio.html" 
+                style="color: #7c3aed; font-weight: 800; letter-spacing: 2px;">
+                TU AROMA ENCANTADOR
+            </a>
+            <div class="d-flex gap-2">
+                <button onclick="cambiarIdioma('es')" class="btn btn-sm px-2 py-1"
+                    style="font-size:0.8rem; background: none; border: 1px solid #e5e7eb;">
+                    🇨🇴 ES
+                </button>
+                <button onclick="cambiarIdioma('en')" class="btn btn-sm px-2 py-1"
+                    style="font-size:0.8rem; background: none; border: 1px solid #e5e7eb;">
+                    🇺🇸 EN
+                </button>
+            </div>
+        </div>
+    </nav>
     <div class="container min-vh-100 d-flex align-items-center justify-content-center">
         <div class="col-12 col-sm-8 col-md-5 col-lg-4">
 
@@ -16,36 +34,36 @@
                 <a href="inicio.html" class="text-decoration-none">
                     <h1 class="brand-title fs-2">Tu Aroma Encantador</h1>
                 </a>
-                <p class="text-muted small">Crea tu cuenta</p>
+                <p class="text-muted small" data-i18n="registro.titulo">Crea tu cuenta</p>
             </div>
 
             <div class="card shadow-sm p-4">
-                <h5 class="mb-4 fw-semibold">Registro</h5>
+                <h5 class="mb-4 fw-semibold" data-i18n="registro.titulo">Registro</h5>
 
                 <div id="alerta" class="alert d-none" role="alert"></div>
 
                 <div class="mb-3">
-                    <label class="form-label small fw-medium">Nombre completo</label>
-                    <input type="text" id="nombre" class="form-control" placeholder="Nombre">
+                    <label class="form-label small fw-medium" data-i18n="registro.nombre">Nombre completo</label>
+                    <input type="text" id="nombre" class="form-control" data-i18n="registro.nombre" placeholder="Nombre">
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label small fw-medium">Correo electrónico</label>
-                    <input type="email" id="email" class="form-control" placeholder="correo@email.com">
+                    <label class="form-label small fw-medium" data-i18n="registro.email">Correo electrónico</label>
+                    <input type="email" id="email" class="form-control" data-i18n="registro.email" placeholder="correo@email.com">
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label small fw-medium">Contraseña</label>
-                    <input type="password" id="password" class="form-control" placeholder="Mínimo 6 caracteres">
+                    <label class="form-label small fw-medium" data-i18n="registro.password">Contraseña</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••">
                 </div>
 
                 <button class="btn btn-primary w-100 mb-3" onclick="registrarse()">
-                    Crear cuenta
+                    <span data-i18n="registro.btn">Crear cuenta</span>
                 </button>
 
                 <p class="text-center small text-muted mb-0">
-                    ¿Ya tienes cuenta?
-                    <a href="index.html" class="text-purple text-decoration-none fw-medium">Inicia sesión</a>
+                    <span data-i18n="registro.ya.cuenta">¿Ya tienes cuenta?</span>
+                    <a href="index.html" class="text-purple text-decoration-none fw-medium" data-i18n="registro.inicia">Inicia sesión</a>
                 </p>
             </div>
 
@@ -54,6 +72,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/api.js"></script>
     <script src="js/registro.js"></script>
 </body>

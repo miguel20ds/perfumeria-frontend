@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', () => {
+    aplicarTraducciones();
+});
+
 if (obtenerToken()) {
     window.location.href = obtenerRol() === 'ADMIN' ? 'admin-perfumes.html' : 'catalogo.html';
 }

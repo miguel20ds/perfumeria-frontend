@@ -2,6 +2,10 @@ verificarAutenticacion();
 
 let reservaIdSeleccionada = null;
 
+document.addEventListener('DOMContentLoaded', () => {
+    aplicarTraducciones();
+});
+
 document.getElementById('nombre-usuario').textContent = obtenerNombre();
 
 async function cargarReservas() {
@@ -35,7 +39,7 @@ function renderizarReservas(lista) {
                     <div>
                         <span class="badge badge-${r.estado.toLowerCase()} px-3 py-2 rounded-pill">
                             <i class="bi bi-${r.estado === 'ENTREGADO' ? 'check-circle' : 'clock'} me-1"></i>
-                            ${r.estado}
+                            ${r.estado === 'ENTREGADO' ? t('reservas.entregado') : t('reservas.pendiente')}
                         </span>
                     </div>
                     <span class="text-muted small">#${r.id}</span>
@@ -53,7 +57,7 @@ function renderizarReservas(lista) {
                     </div>
                     <p class="text-muted small mb-0">
                         <i class="bi bi-calendar3 me-1"></i>
-                        ${new Date(r.fechaReserva).toLocaleDateString('es-CO', { year:'numeric', month:'long', day:'numeric' })}
+                        ${new Date(r.fechaReserva).toLocaleDateString(obtenerIdioma() === 'en' ? 'en-US' : 'es-CO', { year:'numeric', month:'long', day:'numeric' })}
                     </p>
                 </div>
 
@@ -61,10 +65,10 @@ function renderizarReservas(lista) {
                     <span class="fw-bold" style="color:#7c3aed;">$${r.perfume.precio.toLocaleString('es-CO')}</span>
                     ${r.estado === 'PENDIENTE' ? `
                         <button class="btn btn-sm btn-outline-danger" onclick="abrirModalEliminar(${r.id}, '${r.perfume.nombre}')">
-                            <i class="bi bi-trash me-1"></i>Cancelar
+                            <i class="bi bi-trash me-1"></i>${t('reservas.cancelar')}
                         </button>
                     ` : `
-                        <span class="text-success small"><i class="bi bi-check-circle me-1"></i>Entregado</span>
+                        <span class="text-success small"><i class="bi bi-check-circle me-1"></i>${t('reservas.entregado')}</span>
                     `}
                 </div>
             </div>
