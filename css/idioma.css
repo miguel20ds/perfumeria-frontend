@@ -1,0 +1,78 @@
+.idioma-selector {
+    position: relative;
+}
+
+.idioma-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    background: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.idioma-btn:hover {
+    background-color: #f5f3ff;
+}
+
+.idioma-btn-admin {
+    border-color: #4b5563;
+    color: #c4b5fd;
+}
+
+.idioma-btn-admin:hover {
+    background-color: rgba(124, 58, 237, 0.1);
+}
+
+.idioma-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    min-width: 150px;
+    z-index: 9999;
+    overflow: hidden;
+    display: none;
+}
+
+.idioma-dropdown.show {
+    display: block;
+}
+
+.idioma-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #1e1b4b;
+    transition: background 0.15s;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+}
+
+.idioma-option:hover {
+    background-color: #f5f3ff;
+    color: #7c3aed;
+}
+
+.idioma-option.activo {
+    background-color: #ede9fe;
+    color: #7c3aed;
+    font-weight: 600;
+}
+
+.idioma-flag {
+    font-size: 1rem;
+}

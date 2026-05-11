@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const esAdmin = document.querySelector('.idioma-selector-container[data-admin]') !== null;
+    inicializarSelectorIdioma(esAdmin);
     aplicarTraducciones();
 });
 

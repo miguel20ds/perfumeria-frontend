@@ -1,3 +1,9 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const esAdmin = document.querySelector('.idioma-selector-container[data-admin]') !== null;
+    inicializarSelectorIdioma(esAdmin);
+    aplicarTraducciones();
+});
+
 verificarAdmin();
 
 let perfumeIdEditando = null;
@@ -102,7 +108,7 @@ async function guardarPerfume() {
     const urlInput = document.getElementById('f-imagen-url').value.trim();
 
     if (!nombre || !marca || !precio || !stock) {
-        mostrarAlertaModal('Por favor completa los campos obligatorios.', 'danger');
+        mostrarAlertaModal(t('admin.perfumes.campos'), 'danger');
         return;
     }
 
@@ -124,7 +130,7 @@ async function guardarPerfume() {
             if (!response.ok) throw data;
             imagenUrl = data.url;
         } catch (err) {
-            mostrarAlertaModal('Error al subir la imagen.', 'danger');
+            mostrarAlertaModal(t('error.imagen.subida'), 'danger');
             return;
         }
     }
@@ -141,15 +147,15 @@ async function guardarPerfume() {
     try {
         if (perfumeIdEditando) {
             await api.actualizarPerfume(perfumeIdEditando, datos);
-            mostrarToast('Perfume actualizado correctamente.', 'success');
+            mostrarToast('admin.perfumes.actualizado', 'success');
         } else {
             await api.crearPerfume(datos);
-            mostrarToast('Perfume creado correctamente.', 'success');
+            mostrarToast('admin.perfumes.creado', 'success');
         }
         bootstrap.Modal.getInstance(document.getElementById('modalPerfume')).hide();
         cargarPerfumes();
     } catch (err) {
-        mostrarAlertaModal(err.error || 'Error al guardar el perfume.', 'danger');
+        mostrarAlertaModal(err.error || t('error.servidor'), 'danger');
     }
 }
 
@@ -163,11 +169,11 @@ async function confirmarEliminar() {
     try {
         await api.eliminarPerfume(perfumeIdEliminando);
         bootstrap.Modal.getInstance(document.getElementById('modalEliminar')).hide();
-        mostrarToast('Perfume eliminado correctamente.', 'success');
+        mostrarToast(t('admin.perfumes.eliminado'), 'success');
         cargarPerfumes();
     } catch (err) {
         bootstrap.Modal.getInstance(document.getElementById('modalEliminar')).hide();
-        mostrarToast(err.error || 'Error al eliminar el perfume.', 'danger');
+        mostrarToast(err.error || t('error.servidor'), 'danger');
     }
 }
 

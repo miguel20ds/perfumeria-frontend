@@ -2,6 +2,12 @@ verificarAdmin();
 
 let todosUsuarios = [];
 
+document.addEventListener('DOMContentLoaded', () => {
+    const esAdmin = document.querySelector('.idioma-selector-container[data-admin]') !== null;
+    inicializarSelectorIdioma(esAdmin);
+    aplicarTraducciones();
+});
+
 document.getElementById('nombre-usuario').textContent = obtenerNombre();
 
 async function cargarUsuarios() {
@@ -40,11 +46,14 @@ function renderizarTabla(lista) {
             <td>
                 <span class="badge badge-${u.rol.toLowerCase()} px-3 py-2 rounded-pill">
                     <i class="bi bi-${u.rol === 'ADMIN' ? 'shield-check' : 'person'} me-1"></i>
-                    ${u.rol}
+                    ${u.rol === 'ADMIN' ? 'ADMIN' : t('nav.usuarios') === 'Users' ? 'USER' : 'USUARIO'}
                 </span>
             </td>
             <td class="text-muted small">
-                ${new Date(u.fechaRegistro).toLocaleDateString('es-CO', { year:'numeric', month:'short', day:'numeric' })}
+                ${new Date(u.fechaRegistro).toLocaleDateString(
+                    obtenerIdioma() === 'en' ? 'en-US' : 'es-CO',
+                    { year:'numeric', month:'short', day:'numeric' }
+                )}
             </td>
         </tr>
     `).join('');
