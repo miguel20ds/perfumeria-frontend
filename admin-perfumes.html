@@ -50,16 +50,22 @@
 
     <div class="container py-4">
 
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <div>
-                <h2 class="section-title mb-1" data-i18n="admin.perfumes.titulo">Gestión de perfumes</h2>
-                <p class="text-muted small mb-0" data-i18n="admin.perfumes.subtitulo">Crea, edita y elimina perfumes del catálogo</p>
-            </div>
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4 gap-3">
+        <div>
+            <h2 class="section-title mb-1" data-i18n="admin.perfumes.titulo">Gestión de perfumes</h2>
+            <p class="text-muted small mb-0" data-i18n="admin.perfumes.subtitulo">Crea, edita y elimina perfumes del catálogo</p>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+            <button class="btn btn-outline-secondary btn-sm" onclick="descargarReporte('perfumes')">
+                <i class="bi bi-file-earmark-pdf me-1"></i>
+                <span data-i18n="admin.reporte.descargar">Descargar reporte</span>
+            </button>
             <button class="btn btn-purple" onclick="abrirModalCrear()">
                 <i class="bi bi-plus-lg me-1"></i>
                 <span data-i18n="admin.perfumes.nuevo">Nuevo perfume</span>
             </button>
         </div>
+    </div>
 
         <div id="loading" class="text-center py-5">
             <div class="spinner-border" role="status" style="color: #7c3aed;"></div>
@@ -192,6 +198,7 @@
     <script src="js/auth.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/api.js"></script>
+    <script src="js/reportes.js"></script>
     <script src="js/admin-perfumes.js"></script>
 </body>
 </html>

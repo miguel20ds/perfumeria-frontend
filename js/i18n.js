@@ -127,6 +127,8 @@ const traducciones = {
         'admin.perfumes.eliminar.texto': '¿Estás seguro de que deseas eliminar',
         'admin.perfumes.eliminar.accion': 'Esta acción no se puede deshacer.',
         'admin.perfumes.eliminar.btn': 'Eliminar',
+        'admin.reporte.descargar': 'Descargar reporte',
+        'admin.reporte.exito': 'Reporte descargado correctamente.',
 
         // Admin reservas
         'admin.reservas.titulo': 'Gestión de reservas',
@@ -291,6 +293,8 @@ const traducciones = {
         'admin.perfumes.eliminar.texto': 'Are you sure you want to delete',
         'admin.perfumes.eliminar.accion': 'This action cannot be undone.',
         'admin.perfumes.eliminar.btn': 'Delete',
+        'admin.reporte.descargar': 'Download report',
+        'admin.reporte.exito': 'Report downloaded successfully.',
 
         // Admin reservas
         'admin.reservas.titulo': 'Reservation management',
@@ -423,6 +427,8 @@ const traducciones = {
         'admin.perfumes.eliminar.texto': 'Êtes-vous sûr de vouloir supprimer',
         'admin.perfumes.eliminar.accion': 'Cette action est irréversible.',
         'admin.perfumes.eliminar.btn': 'Supprimer',
+        'admin.reporte.descargar': 'Télécharger le rapport',
+        'admin.reporte.exito': 'Rapport téléchargé avec succès.',
 
         // Admin reservas
         'admin.reservas.titulo': 'Gestion des réservations',
