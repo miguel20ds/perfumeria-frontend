@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080';
+const API_URL = 'https://localhost:8443';
 
 function guardarSesion(data) {
     localStorage.setItem('token', data.token);
