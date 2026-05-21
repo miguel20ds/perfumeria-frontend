@@ -148,6 +148,10 @@ const traducciones = {
         'admin.reservas.eliminar.texto': '¿Estás seguro de que deseas eliminar la reserva de',
         'admin.reservas.eliminar.btn': 'Eliminar',
         'admin.reservas.modal.cancelar': 'Cancelar',
+        'admin.reporte.todos': 'Todas las reservas',
+        'admin.reporte.pendientes': 'Solo pendientes',
+        'admin.reporte.entregados': 'Solo entregados',
+
 
         // Admin usuarios
         'admin.usuarios.titulo': 'Usuarios registrados',
@@ -314,6 +318,9 @@ const traducciones = {
         'admin.reservas.eliminar.texto': 'Are you sure you want to delete the reservation of',
         'admin.reservas.eliminar.btn': 'Delete',
         'admin.reservas.modal.cancelar': 'Cancel',
+        'admin.reporte.todos': 'All reservations',
+        'admin.reporte.pendientes': 'Pending only',
+        'admin.reporte.entregados': 'Delivered only',
         
 
         // Admin usuarios
@@ -453,6 +460,9 @@ const traducciones = {
         'admin.reservas.modal.cancelar': 'Annuler',
         'admin.reservas.entregado': 'Réservation marquée comme livrée.',
         'admin.reservas.eliminada': 'Réservation supprimée avec succès.',
+        'admin.reporte.todos': 'Toutes les réservations',
+        'admin.reporte.pendientes': 'En attente seulement',
+        'admin.reporte.entregados': 'Livrées seulement',
 
         // Admin usuarios
         'admin.usuarios.titulo': 'Utilisateurs enregistrés',

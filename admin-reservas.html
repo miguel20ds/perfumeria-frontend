@@ -56,10 +56,32 @@
             <h2 class="section-title mb-1" data-i18n="admin.reservas.titulo">Gestión de reservas</h2>
             <p class="text-muted small mb-0" data-i18n="admin.reservas.subtitulo">Administra todas las reservas de los usuarios</p>
         </div>
-        <button class="btn btn-outline-secondary btn-sm" onclick="descargarReporte('reservas')">
-            <i class="bi bi-file-earmark-pdf me-1"></i>
-            <span data-i18n="admin.reporte.descargar">Descargar reporte</span>
-        </button>
+        <div class="dropdown">
+            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                <i class="bi bi-file-earmark-pdf me-1"></i>
+                <span data-i18n="admin.reporte.descargar">Descargar reporte</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item" href="#" onclick="descargarReporteReservas('')">
+                        <i class="bi bi-list me-1"></i>
+                        <span data-i18n="admin.reporte.todos">Todas las reservas</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" onclick="descargarReporteReservas('PENDIENTE')">
+                        <i class="bi bi-clock me-1"></i>
+                        <span data-i18n="admin.reporte.pendientes">Solo pendientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" onclick="descargarReporteReservas('ENTREGADO')">
+                        <i class="bi bi-check-circle me-1"></i>
+                        <span data-i18n="admin.reporte.entregados">Solo entregados</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <!-- Estadísticas -->

@@ -147,10 +147,10 @@ async function guardarPerfume() {
     try {
         if (perfumeIdEditando) {
             await api.actualizarPerfume(perfumeIdEditando, datos);
-            mostrarToast('admin.perfumes.actualizado', 'success');
+            mostrarToast('Perfume Editado', 'success');
         } else {
             await api.crearPerfume(datos);
-            mostrarToast('admin.perfumes.creado', 'success');
+            mostrarToast('Perfume Creado', 'success');
         }
         bootstrap.Modal.getInstance(document.getElementById('modalPerfume')).hide();
         cargarPerfumes();
